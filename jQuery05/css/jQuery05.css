@@ -1,0 +1,21 @@
+
+
+  * {
+  	padding: 0;
+  	margin: 0;
+  }
+
+  .Lselect,.Rselect {
+  	height: 100px;
+  	width: 100px;
+  	float: left;.
+  }
+  
+  .Btn {
+  	float: left;
+  }
+  
+  .Btn button {
+  	display: block;
+  	margin: 0 20px;
+  }

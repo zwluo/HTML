@@ -1,0 +1,31 @@
+
+
+  * {
+  	padding: 0;
+  	margin: 0;
+  }
+  
+  .top {
+  	height: 630px;
+  	position: relative;
+  	/*position: absolute;*/
+  	overflow: hidden;
+  }
+  
+  #myvedio {
+  	margin-top: 20px;
+  	height: 560px;
+  	width: 100%;
+  }
+  
+  .foot {
+  	background-color: bisque;
+  	/*margin-bottom: 0;*/
+  	height: 100px;
+  	text-align: center;
+  	line-height: 100px;
+  }
+  
+   p {
+  	display: inline-block;
+  }

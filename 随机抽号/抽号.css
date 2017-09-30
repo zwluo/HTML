@@ -1,0 +1,32 @@
+@charset "utf-8";
+/* CSS Document */
+*{margin:0;
+  padding:0;}
+#title{
+	width:500px;height:100px;
+	margin:0 auto;
+	text-align:center;
+	margin-top:40px;
+	font-size:24px;
+	color:#F00;
+	}
+#zt{
+	width:200px;height:30px;
+	margin:0 auto;
+	}
+.zt span{
+	width:80px;height:27px;
+	color:#00F;
+	display:block;
+	float:left;
+	background-color:#F00;	
+	font-size:16px;
+	text-align:center;
+	margin-right:15px;
+	}
+	#start{
+		cursor:pointer;
+	}
+#stop{
+	cursor:pointer;
+}

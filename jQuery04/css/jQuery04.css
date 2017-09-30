@@ -1,0 +1,30 @@
+
+
+  * {
+  	padding: 0;
+  	margin: 0;
+  }
+
+  .box ul li {
+  	display: inline-block;
+  	list-style: none;
+  	height: 100px;
+  	width: 20%;
+  	text-align: center;
+  }
+
+  .box ul li a {
+  	display: block;
+  	background-color: cornflowerblue;
+  	text-decoration: none;
+  	line-height: 50px;
+  }
+  
+  .box ul li span {
+		display: block;
+  	line-height: 50px;
+  	height: 50px;
+  	background-color: yellow;
+  	top: 50px;
+  }
+  
