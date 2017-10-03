@@ -1,0 +1,17 @@
+
+
+  * {
+  	padding: 0;
+  	margin: 0;
+  }
+  
+  .operation {
+  	text-align: center;
+  	margin-top: 100px;
+  	margin-bottom: 10px;
+  }
+  
+  .tab,.operate {
+  	text-align: center;
+  	margin: 0 auto;
+  }
