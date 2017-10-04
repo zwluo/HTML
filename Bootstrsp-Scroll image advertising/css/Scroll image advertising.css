@@ -5,6 +5,26 @@
   	margin: 0;
   }
   
-  .carousel .carousel-inner img {
+  .carousel {
+    height: 500px;
+		margin-bottom: 60px;
+        }
+
+  .carousel .item {
+    height: 500px;
+    background-color: #000;
+  }
+
+  .carousel .item img {
     width: 100%;
+  }
+
+  .carousel-caption {
+    z-index: 10;
+  }
+
+  .carousel-caption p {
+    margin-bottom: 20px;
+    font-size: 20px;
+    line-height: 1.8;
   }
