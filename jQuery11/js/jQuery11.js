@@ -17,6 +17,5 @@
   	$(".content").on("mouseleave",function () {
   		$(this).children().text(KX);
   		$("li.mark").text(SX).prevAll().text(SX);
-  	});
-  	
+  	}); 	
   });

@@ -11,6 +11,7 @@
   	
   	
   	$(".btn03").click(function () {
+		//   选中的
   		$(".Lselect>option:selected").appendTo(".Rselect");
   	});
   	

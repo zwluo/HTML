@@ -1,9 +1,8 @@
 
 
   $(function () {
-  	
   	$("#add").on("click", function () {
-  		
+			// $(".tab").appendChild()
   	});
   	
   	$("#empty").on("click", function () {

@@ -12,14 +12,12 @@
   	width: 20%;
   	text-align: center;
   }
-
   .box ul li a {
   	display: block;
   	background-color: cornflowerblue;
   	text-decoration: none;
   	line-height: 50px;
-  }
-  
+  }  
   .box ul li span {
 		display: block;
   	line-height: 50px;

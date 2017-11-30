@@ -4,7 +4,9 @@
   	padding: 0;
   	margin: 0;
   }
-  
+	.form {
+		text-align: center;
+	}
   .operation {
   	text-align: center;
   	margin-top: 100px;

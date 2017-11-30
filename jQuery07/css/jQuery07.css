@@ -4,23 +4,26 @@
   	padding: 0;
   	margin: 0;
   }
-  
+  .danmu {
+	  z-index: 100;
+	  display: inline-block;
+	  position: fixed;
+	  left: 1500px;
+  }
   .top {
   	height: 630px;
   	position: relative;
-  	/*position: absolute;*/
-  	overflow: hidden;
+	overflow: hidden;
   }
   
   #myvedio {
-  	margin-top: 20px;
-  	height: 560px;
-  	width: 100%;
+	  margin-top: 20px;
+	  width: 100%;
+	  height: 560px;
   }
   
   .foot {
   	background-color: bisque;
-  	/*margin-bottom: 0;*/
   	height: 100px;
   	text-align: center;
   	line-height: 100px;
