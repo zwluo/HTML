@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>canvas之旋转缩放</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/style.css" rel="stylesheet">
+    <style>
+        canvas {
+            /* color: #fff; */
+            border: 1px solid red;
+        }
+    </style>
+    <script>
+        window.onload = function() {
+            var oC = document.getElementById('c1');
+            var oGC = oC.getContext('2d');
+
+            var num = 0;
+            oGC.translate(100, 100);
+            oGC.lineWidth = 0.5;
+            setInterval(function() {
+                num++;
+                oGC.save();
+                oGC.clearRect(0, 0, oC.Width, oC.height);
+                oGC.rotate(num * Math.PI / 180);
+                oGC.translate(-50, -50);
+                oGC.strokeRect(0, 0, 100, 100);
+                oGC.restore();
+            }, 30);
+        }
+    </script>
+</head>
+
+<body>
+    <canvas id="c1" width="400" height="400"></canvas>
+</body>
+
+</html>

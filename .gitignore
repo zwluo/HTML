@@ -1,7 +1,10 @@
 
-.project
+*.project
 jquery-3.2.1.min.js
 .jpg
 bootstrap-3.3.7-dist
 *.jpg
 *.psd
+*.png
+*.wav
+*.mp4
