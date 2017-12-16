@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>文字特效</title>
+    <!-- text-shadow属性
+        *@keyframes 规则
+    -->
+    <style>
+        body {
+            /* background: #000; */
+            text-align: center;
+            margin: 0 auto;
+        }
+
+        h1 {
+            text-align: center;
+            color: #fff;
+            font-size: 48px;
+            font-family: 'Fruktur', cursive;
+            text-shadow: 1px 1px 1px #ccc,
+            0 0 10px #fff,
+            0 0 20px #fff,
+            0 0 30px #fff,
+            0 0 40px #0f9ea8,
+            0 0 70px #0f9ea8,
+            0 0 80px #0f9ea8,
+            0 0 100px #0f9ea8,
+            0 0 150px #0f9ea8;
+
+            transform-style: preserve-3d;
+            -moz-transform-style: preserve-3d;
+            -webkit-transform-style: preserve-3d;
+            -ms-transform-style: preserve-3d;
+            -o-transform-style: preserve-3d;
+
+
+            animation: run ease-in-out 9s infinite;
+            -moz-animation: run ease-in-out 9s infinite;
+            -webkit-animation: run ease-in-out 9s infinite;
+            -ms-animation: run ease-in-out 9s infinite;
+
+            -o-animation: run ease-in-out 9s infinite;
+        }
+
+        @keyframes run {
+            0% {
+                transform: rotateX(-5deg) rotateY(0);
+            }
+            50% {
+                transform: rotateX(0) rotateY(180deg);
+                text-shadow: 1px 1px 1px #ccc,
+                0 0 10px #fff,
+                0 0 20px #fff,
+                0 0 30px #fff,
+                0 0 40px rgb(168, 55, 40),
+                0 0 70px rgb(168, 55, 40),
+                0 0 80px rgb(168, 55, 40),
+                0 0 100px rgb(168, 55, 40),
+                0 0 150px rgb(168, 55, 40);
+            }
+            100% {
+                transform: rotateX(5deg) rotateY(360deg);
+            }
+        }
+        @-moz-keyframes run {
+            0% {
+                -moz-transform: rotateX(-5deg) rotateY(0);
+            }
+            50% {
+                -moz-transform: rotateX(0) rotateY(180deg);
+                text-shadow: 1px 1px 1px #ccc,
+                0 0 10px #fff,
+                0 0 20px #fff,
+                0 0 30px #fff,
+                0 0 40px #3EFF3E,
+                0 0 70px #3EFFff,
+                0 0 80px #3EFFff,
+                0 0 100px #3EFFee,
+                0 0 150px #3EFFee;
+            }
+            100% {
+                -moz-transform: rotateX(5deg) rotateY(360deg);
+            }
+        }
+
+        @-webkit-keyframes run {
+            0% {
+                -webkit-transform: rotateX(-5deg) rotateY(0);
+            }
+            50% {
+                -webkit-transform: rotateX(0) rotateY(180deg);
+                text-shadow: 1px 1px 1px #ccc,
+                0 0 10px #fff,
+                0 0 20px #fff,
+                0 0 30px #fff,
+                0 0 40px #3EFF3E,
+                0 0 70px #3EFFff,
+                0 0 80px #3EFFff,
+                0 0 100px #3EFFee,
+                0 0 150px #3EFFee;
+            }
+            100% {
+                -webkit-transform: rotateX(5deg) rotateY(360deg);
+            }
+        }
+
+        @-ms-keyframes run {
+            0% {
+                -ms-transform: rotateX(-5deg) rotateY(0);
+            }
+            50% {
+                -ms-transform: rotateX(0) rotateY(180deg);
+            }
+            100% {
+                -ms-transform: rotateX(5deg) rotateY(360deg);
+            }
+        }
+        div {
+            width: 100%;
+        }
+        .boxshadow-outset {
+            width: 100px;
+            height: 100px;
+            box-shadow: 4px 4px 6px #666;
+        }
+
+        .boxshadow-inset {
+            width: 100px;
+            height: 100px;
+            box-shadow: 4px 4px 6px #666 inset;
+        }
+
+        .boxshadow-multi {
+            width: 100px;
+            height: 100px;
+            box-shadow: 4px 2px 6px #f00, -4px -2px 6px #000, 0px 0px 12px 5px #33CC00 inset;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>你好啊，何二狗</h1>
+    <h2>外阴影</h2>
+    <div class="boxshadow-outset">
+    </div>
+    <br />
+    <h2>内阴影</h2>
+    <div class="boxshadow-inset">
+    </div>
+    <br />
+    <h2>多阴影</h2>
+    <div class="boxshadow-multi">
+    </div>
+</body>
+
+</html>
