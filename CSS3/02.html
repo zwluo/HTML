@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>颜色渐变</title>
+    <style>
+        p {
+            width: 400px;
+            height: 150px;
+            line-height: 150px;
+            text-align: center;
+            color: #000;
+            font-size: 24px;
+            background-image: linear-gradient(to top left, red, orange, yellow, green, blue, indigo, violet);
+        }
+
+        img {
+            /* Safari 5.1 to 6.0 */
+            background: -webkit-repeating-linear-gradient(red, yellow 10%, green 20%);
+            /* Opera 11.1 to 12.0 */
+            background: -o-repeating-linear-gradient(red, yellow 10%, green 20%);
+            /* Firefox 3.6 to 15 */
+            background: -moz-repeating-linear-gradient(red, yellow 10%, green 20%);
+            /* 标准语法 */
+            background: repeating-linear-gradient(red, yellow 10%, green 20%);
+        }
+    </style>
+</head>
+
+<body>
+    <p>右下角向左上角的线性渐变背景</p>
+    <img src="./yansejianbian.jpg">
+</body>
+
+</html>
