@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>文字与字体</title>
+    <style>
+        .test_demo {
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            width: 200px;
+            padding: 30px;
+            color: #566F89;
+            font-size: 16px;
+            font-family: "MOOC Font";
+        }
+
+        @font-face {
+            font-family: "MOOC Font";
+            src: url("http://www.imooc.com/Amaranth-BoldItalic.otf");
+        }
+
+        .demo {
+            width: 340px;
+            padding: 30px;
+            color: #566F89;
+            font-size: 58px;
+            font-family: "MOOC Font";
+            text-shadow: 2px 2px 0 red;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="test_demo">
+        超酷的IT技术学习平台（我是省略号）
+    </div>
+    <div class="demo">
+        IMOOC
+    </div>
+</body>
+
+</html>
