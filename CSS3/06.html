@@ -1,0 +1,168 @@
+/*
+ * @Author: Feafortecsy 
+ * @Date: 2017-12-23 20:24:26 
+ * @Last Modified by:   Feafortecsy 
+ * @Last Modified time: 2017-12-23 20:24:26 
+ */
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #trans {
+            width: 200px;
+            height: 200px;
+            background-color: orange;
+            margin: 20px auto;
+            border-radius: 100%;
+            /* -webkit-transition-property: -webkit-border-radius;
+            transition-property: border-radius;
+            -webkit-transition-duration: 1s;
+            transition-duration: 1s;
+            -webkit-transition-timing-function: ease-in-out;
+            transition-timing-function: ease-in-out;
+            -webkit-transition-delay: .5s;
+            transition-delay: .5s; */
+            transition: border-radius .5s ease-in-out;
+        }
+
+        #trans:hover {
+            border-radius: 0px;
+            background-color: #0080c0;
+        }
+
+        @Keyframes changecolor {
+            0% {
+                background: red;
+            }
+            20% {
+                background: blue;
+            }
+            40% {
+                background: orange;
+            }
+            60% {
+                background: green;
+            }
+            80% {
+                background: yellow;
+            }
+            100% {
+                background: red;
+            }
+        }
+
+        #keyf {
+            width: 300px;
+            height: 200px;
+            background: red;
+            color: #fff;
+            margin: 20px auto;
+        }
+
+        #keyf:hover {
+            animation: changecolor 5s ease-out .2s;
+        }
+
+        @keyframes around {
+            0% {
+                transform: translateX(0);
+            }
+            25% {
+                transform: translateX(180px);
+            }
+            50% {
+                transform: translate(180px, 180px);
+            }
+            75% {
+                transform: translate(0, 180px);
+            }
+            100% {
+                transform: translateY(0);
+            }
+        }
+        /* @-webkit-keyframes around{
+  0% {
+    -webkit-transform: translateX(0);
+  }
+  25%{
+    -webkit-transform: translateX(180px);
+  }
+  50%{
+     -webkit-transform: translate(180px, 180px); 
+  }
+  75%{
+    -webkit-transform:translate(0,180px);
+  }
+  100%{
+    -webkit-transform: translateY(0);
+  }
+}
+@-moz-keyframes around{
+  0% {
+    -moz-transform: translateX(0);
+  }
+  25%{
+    -moz-transform: translateX(180px);
+  }
+  50%{
+     -moz-transform: translate(180px, 180px); 
+  }
+  75%{
+    -moz-transform:translate(0,180px);
+  }
+  100%{
+    -moz-transform: translateY(0);
+  }
+} */
+
+        #anim {
+            width: 200px;
+            height: 200px;
+            border: 1px solid red;
+            margin: 20px auto;
+        }
+
+        #anim span {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            background: rgb(22, 189, 211);
+            border-radius: 100%;
+            animation: around;
+            /* -webkit-animation:around;
+  -moz-animation:around; */
+            animation-duration: 10s;
+            /* -webkit-animation-duration:10s;
+  -moz-animation-duration:10s; */
+            animation-timing-function: ease;
+            /* -webkit-timing-function:ease;
+  -moz-timing-function:ease; */
+            animation-delay: 1s;
+            /* -webkit-animation-delay:1s;
+  -moz-animation-delay:1s; */
+            animation-iteration-count: infinite;
+            /* -webkit-animation-iteration-count:infinite;
+  -moz-animation-ineration-count:infinite; */
+        }
+    </style>
+</head>
+
+<body>
+    <div id="trans">
+
+    </div>
+
+    <div id="keyf">
+
+    </div>
+    <div id="anim">
+        <span></span>
+    </div>
+</body>
+
+</html>
