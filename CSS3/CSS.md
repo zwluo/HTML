@@ -90,3 +90,13 @@
 
 4. :target 目标选择器。
     - 用来匹配文档(页面)的url的某个标志符的目标元素。我们先来上个例子，然后再做分析。
+
+
+# 属性书写顺序
+
+- 建议遵循以下顺序：
+
+1. 布局定位属性：display / position / float / clear / visibility / overflow
+2. 自身属性：width / height / margin / padding / border / background
+3. 文本属性：color / font / text-decoration / text-align / vertical-align / white- space / break-word
+4. 其他属性（CSS3）：content / cursor / border-radius / box-shadow / text-shadow / background:linear-gradient …
