@@ -1,68 +1,104 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>动画综合</title>
+    <title>布局样式</title>
     <style>
-        ul,
-        li {
-            list-style: none outside none;
+        .columns {
+            width: 500px;
+            padding: 5px;
+            border: 1px solid green;
+            margin: 20px auto;
+            columns: 150px 3;
+            /* 列间距 */
+            column-gap: 1rem;
+            /* 列表边框 */
+            column-rule: 3px solid grey;
         }
-        @font-face {
-            font-family: "MOOC Font";
-            src: url("http://www.imooc.com/Amaranth-BoldItalic.otf");
+
+        h1 {
+            font-size: 20px;
+            margin: 0;
+            color: #fff;
         }
-        #Synthesis {
-            padding: 0;
-            margin: auto;
-            width: 91%;
-            text-align: center;
-            background-color: #74adaa;
-            border-radius: 5px;
+
+        #page:after,
+        #page:before {
+            content: "";
+            display: table;
         }
-        .menu {
-            display: inline-block;
-            width: 13%;
-            padding: 1% 0;
-            border-right:1px solid #94c0be;
+
+        #page:after {
+            clear: both;
+            overflow: hidden;
         }
-        .menu:last-child {
-            border: none;
+
+        #page {
+            margin-bottom: 20px;
         }
-        .menu:hover {
-            perspective: 200;
+
+        #header {
+            width: 100%;
+            background: green;
+            margin-bottom: 10px;
+            padding: 20px;
         }
-        .nav {
-            /* font-family: 'MOOC Font'; */
-            background-color: #74adaa;
+
+        .main {
+            width: 60%;
+            padding: 20px;
+            background: orange;
+            float: left;
+        }
+
+        .sidebar {
+            width: 38%;
+            float: right;
+            background: #f36;
+            padding: 20px;
+        }
+
+        #footer {
+            width: 100%;
+            background: #36f;
+            padding: 20px;
+            clear: both;
+        }
+
+        #header,
+        .main,
+        .sidebar,
+        #footer {
+            box-sizing: border-box
         }
     </style>
 </head>
+
 <body>
-    <div id="Synthesis">
-        <div class="menu">
-            <span class="nav">Home</span>
+    <div class="columns">
+        <h2>我要分列显示</h2>
+        <p>为了能在Web页面中方便实现类似报纸、杂志那种多列排版的布局，W3C特意给CSS3增加了一个多列布局模块（CSS Multi Column Layout Module）。它主要应用在文本的多列布局方面。对于文本的多列布局，我想大家并不陌生，因为报纸和杂志上我们随处可见，这种布局在报纸和杂志上都使用了几十年了，但需要在Web页面上实现文本的多列布局，正如下图所示。</p>
+        <p>为了能在Web页面中方便实现类似报纸、杂志那种多列排版的布局，W3C特意给CSS3增加了一个多列布局模块（CSS Multi Column Layout Module）。它主要应用在文本的多列布局方面。对于文本的多列布局，我想大家并不陌生，因为报纸和杂志上我们随处可见，这种布局在报纸和杂志上都使用了几十年了，但需要在Web页面上实现文本的多列布局，正如下图所示。</p>
+    </div>
+    <div>
+        <div id="header">
+            <h1>Header Content</h1>
         </div>
-        <div class="menu">
-            <span class="nav">Services</span>
+        <div id="page">
+            <div class="main">
+                <h1>Main Content</h1>
+            </div>
+            <div class="sidebar">
+                <h1>Sidebar Content</h1>
+            </div>
         </div>
-        <div class="menu">
-            <span class="nav">Products</span>
+        <div id="footer">
+            <h1>Footer Content</h1>
         </div>
-        <div class="menu">
-            <span class="nav">About</span>
-        </div>
-        <div class="menu">
-            <span class="nav">Contact</span>
-        </div>
-        <div class="menu">
-            <span class="nav">Blog</span>
-        </div>
-        <div class="menu">
-            <span class="nav">Shop</span>
-        </div>      
     </div>
 </body>
+
 </html>
