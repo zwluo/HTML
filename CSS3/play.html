@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>播放暂停</title>
+    <style>  
+        #operator {
+            width: 100%;
+            text-align: center;
+            margin: auto;
+        }
+        .prev {
+            display: inline-block;
+            width: .5rem;
+            height: 1rem;
+            border: .1rem solid red;
+            border-top-right-radius: 100%;
+            border-bottom-right-radius: 100%;
+        }      
+        .play {
+            display: inline-block;
+            width: .5rem;
+            height: 1rem;
+            border: 3px solid transparent;
+            border-left-color: red;
+            border-right-color: red;
+            border-top: 0 none;
+            border-bottom: 0 none;
+            margin: 20px auto 0;
+        }
+        .pause {
+            display: inline-block;
+            width: 0;
+            height: 0;
+            border: .65rem solid transparent;
+            border-left-color: red;
+            border-right: 0 none;
+            margin: 20px auto 0;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            const turn = document.getElementById("turn")
+            const state = turn.classList
+            turn.onclick = function () {
+                if (state[0] === "play") {                   
+                    state.remove("play")
+                    state.add("pause")         
+                } else {
+                    state.remove("pause")
+                    state.add("play")
+                }
+                console.log(state[0])
+            }
+        }  
+    </script>
+</head>
+<body>
+    <div id="operator">
+        <!-- <div class="prev"></div> -->
+        <div id="turn" class="play"></div>
+        <div class="next"></div>
+    </div>
+    
+</body>
