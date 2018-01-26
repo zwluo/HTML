@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        html,
+        body {
+            overflow: hidden;
+            width: 100%;
+            height: 100%;
+            cursor: none;
+            background-color: #fff;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            let ctx = document.getElementById("canvas")
+            let content = ctx.getContext("2d")
+            let round = new Array()
+
+            const WIDTH = document.documentElement.clientWidth
+            const HEIGHT = document.documentElement.clientHeight
+            
+            ctx.width = WIDTH
+            ctx.height = HEIGHT
+
+            // 圆点 的 样式: 位置 大小 填充色
+            function Round_Item (index, x, y) {
+                // this.index = index
+                if (index === 1) {
+                    console.log(this)                    
+                }
+                this.x = x
+                this.y = y
+                this.r = Math.random() * 2 + 1
+                let alpha = (Math.floor(Math.random() *10) + 1) / 10 / 2 
+                this.color = "rgba(0, 0, 0, " + alpha + ")"
+                if (index === 1) {
+                    console.log(this)                    
+                }
+            }
+
+            // 绘制  圆点
+            // 将 draw 写到  Round_Item 的 原型 上, 使得 每个 Round_Item 都具有 draw  函数
+            Round_Item.prototype.draw = function () {
+                content.fillStyle = this.color
+                content.shadowBlur = this.r * 2
+                content.beginPath()
+                content.arc(this.x, this.y, this.r, 0, 2 * Math.PI, false)
+                content.closePath()
+                content.fill()
+            }
+            function init () {
+                let INITROUNDNUMBER = Math.random() * 200
+                if (INITROUNDNUMBER < 69 && INITROUNDNUMBER > 169) {
+                    INITROUNDNUMBER = 69
+                }
+                for (let i = 0; i < INITROUNDNUMBER; i++) {
+                    round[i] = new Round_Item(i, Math.random() * WIDTH, Math.random() * HEIGHT)
+                    // console.log(round[i])
+                    round[i].draw()
+                }
+                roundAnimation()
+            }
+
+            function roundAnimation () {
+                // 清除  画布
+                content.clearRect(0, 0, WIDTH, HEIGHT)
+                for (let i in round) { 
+                    round[i].roundMove()
+                } 
+                requestAnimationFrame(roundAnimation) 
+            }
+
+            // 使  圆点 移动
+            Round_Item.prototype.roundMove = function () {
+                this.y += 0.35
+                if (this.y > HEIGHT) {
+                    this.y = -10
+                }
+                this.draw()
+            }
+
+            init()
+        }
+    </script>
+</head>
+<body>
+    <canvas id="canvas"></canvas>
+</body>
+</html>
