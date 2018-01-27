@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Move</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        #move {
+            background-color: #000;
+        }
+    </style>
+    <script>
+        
+
+        window.onload = function () {
+            let canvas = document.getElementById("move")
+            let ctx = canvas.getContext("2d")
+            let WIDTH = canvas.width = document.documentElement.clientWidth
+            let HEIGHT = canvas.height = document.documentElement.clientHeight
+            let para = { 
+                num: 100,
+                color: false, //  颜色  如果是false 则是随机渐变颜色 
+                r: 0.9, //   圆每次增加的半径 
+                o: 0.09, //      判断圆消失的条件，数值越大，消失的越快 
+                a: 1 
+            }
+            let color_1 = ''
+            let color_2 = ''
+            let round = new Array()
+            window.onmousemove = function (event) {
+                // 获得 鼠标 坐标
+                mouseX = event.clientX
+                mouseY = event.clientY
+                round.push({
+                    mouseX: mouseX,
+                    mouseY: mouseY,
+                    // 设置半径每次增大的数值        
+                    r: para.r,
+                    //  判断圆消失的条件，数值越大，消失的越快
+                    o: 1,
+                })
+            }
+            if (para.color) {
+                color_2 = para.color
+            } else {
+                color_1 = Math.random() * 360
+            }
+
+            function roundAnimation () {
+                if (!para.color) {
+                    color_1 += 0.1
+                    color_2 = 'hsl(' + color_1 + ', 100%, 80%)';
+                }
+
+                ctx.clearRect(0, 0, WIDTH, HEIGHT)
+                for (let i = 0; i < round.length; i++) {
+                    ctx.fillStyle = color_2
+                    ctx.beginPath()
+                    ctx.arc( round[i].mouseX, round[i].mouseY,round[i].r, 0, Math.PI * 2);
+                    ctx.closePath();
+                    ctx.fill();
+                    round[i].r += para.r;
+                    round[i].o -= para.o;
+
+                    if( round[i].o <= 0){
+                        round.splice(i, 1);
+                        i--;
+                    }
+                }
+                window.requestAnimationFrame(roundAnimation)                
+            }
+            setTimeout(() => {
+                roundAnimation()
+            }, 300)
+           
+        }
+    </script>
+</head>
+<body>
+    <canvas id="move"></canvas>
+</body>
+</html>
