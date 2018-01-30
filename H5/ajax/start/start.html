@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Ajax Start</title>
+</head>
+<body>
+    <div>
+        <button>
+            Apples
+        </button>
+        <button>
+            Cherries
+        </button>
+        <button>
+            Bananas
+        </button>
+    </div>
+    <div id="target">
+        Press a button
+    </div>
+    <script>
+        // 点击 各个按钮，浏览器 异步 请求 并取回 所请求的  文档， 而主文档不会 重新 加载， 这就是 典型的  Ajax 行为
+        let buttons = document.getElementsByTagName("button")
+        for (let i = 0; i < buttons.length; i++) {
+            buttons[i].onclick = handleButtonPress
+        }       
+
+        function handleButtonPress (event) {
+            //  创建 新的 XMLHttpRequest 对象
+            let httpRequest = new XMLHttpRequest()
+            // readystatechange 事件处理器: handleReponse函数
+            // 处理器 在请求 过程 会 多次 触发
+            httpRequest.onreadystatechange = handleResponse
+            // 使用 open() 通知 XMLHttpRequest 对象，  指定HTTP方法 和  请求的URL
+            httpRequest.open("GET", event.target.innerHTML + ".html")
+            httpRequest.send()
+        }
+
+        function handleResponse (event) {
+            // console.log(event.target.readyState)  输出 1 和 4            
+            // XMLHttpRequest.readyState 属性的 值表示 请求状态
+            // DONE 表示完成  status属性 值 200 表示 成功            
+            if (event.target.readyState === XMLHttpRequest.DONE && event.target.status === 200) {
+                document.getElementById("target").innerHTML = event.target.responseText
+            }
+        }
+
+        // 以下 为 支持 Opera 浏览器  
+        // 1.  Opera浏览器 触发 readystatechange事件 时不会生成 event 对象，所以 需要 把 XMLHttpRequest 对象 指派给全局变量 才能 引用
+        // 2.  Opera浏览器  没有在  XMLHttpRequest对象上 定义 就绪状态常量  即XMLHttpRequest.DONE
+        // let httpRequest
+        // function handleResponse () {
+        //     if (httpRequest.readyState === 4 && httpRequest.status === 200) {
+        //         document.getElementById("target").innerHTML = httpRequest.responseText
+        //     }
+        // }
+    </script>
+</body>
+</html>
