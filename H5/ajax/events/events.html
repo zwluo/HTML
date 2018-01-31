@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Ajax Events</title>
+    <style>
+        table {
+            margin: 1rem;
+            border-collapse: collapse;
+            float: left;
+        }
+
+        div {
+            margin: 1rem;
+        }
+
+        td,
+        th {
+            padding: .5rem;
+        }
+    </style>
+</head>
+<body>
+        <div>
+            <button>Apples</button>
+            <button>Cherries</button>
+            <button>Bananas</button>
+        </div>
+
+        <table id="events" border="1">
+            
+        </table>
+
+        <div id="target">
+            Press a button
+        </div>
+
+        <script>
+            let buttons = document.getElementsByTagName("button")
+            for (let i = 0; i < buttons.length; i++) {
+                buttons[i].onclick = handleButtonClick
+            }
+            let httpRequest
+
+            function handleButtonClick (event) {
+                clearEventDetails()
+                httpRequest = new XMLHttpRequest()
+                httpRequest.onreadystatechange = handleResponse
+                httpRequest.onerror = handleError
+                httpRequest.onload = handleLoad
+                httpRequest.onloadend = handleLoadEnd
+                httpRequest.onloadstart = handleLoadStart
+                httpRequest.onprogress = handleProgress
+                httpRequest.open("GET", event.target.innerHTML + '.html')
+                httpRequest.send()
+            }
+
+            function handleResponse (event) {
+                displayEventDetails("resdystate(" + httpRequest.readyState + ")")
+                if (httpRequest.readyState === 4 && httpRequest.status === 200) {
+                    document.getElementById("target").innerHTML = httpRequest.responseText
+                } 
+            }
+
+            function displayEventDetails (eventName, event) { 
+                if (event) {
+                    document.getElementById("events").innerHTML += "<tr><td>" + eventName + 
+                                                                "</td><td>" + event.lengthComputable +
+                                                                "</td><td>" + event.loaded + 
+                                                                "</td><td>" + event.total + 
+                                                                "</td></tr>"
+                } else {
+                    document.getElementById("events").innerHTML += "<tr><td>" + eventName + 
+                                                                "</td><td>NA</td><td>NA</td><td>NA</td></tr>"
+                }
+            }
+
+            function clearEventDetails () {
+                document.getElementById("events").innerHTML = "<tr><th>Event</th><th>lengthComputable</th>" 
+                                                            + "<th>loaded</th><th>total</th></tr>"
+            }
+
+            function handleError (event) {
+                displayEventDetails("error", event)
+            }
+
+            function handleLoad (event) {
+                displayEventDetails("load", event)
+            }
+
+            function handleLoadEnd (event) {
+                displayEventDetails("loadend", event)
+            }
+
+            function handleLoadStart (event) {
+                displayEventDetails("loadstart", event)
+            }
+
+            function handleProgress (event) {
+                displayEventDetails("progress", event)
+            }
+        </script> 
+</body>
+</html>

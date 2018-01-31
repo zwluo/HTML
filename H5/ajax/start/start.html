@@ -8,15 +8,15 @@
 </head>
 <body>
     <div>
-        <button>
-            Apples
-        </button>
-        <button>
-            Cherries
-        </button>
-        <button>
-            Bananas
-        </button>
+        <button>Apples</button>
+        <button>Cherries</button>
+        <button>Bananas</button>
+    </div>
+    <div>
+        浏览器（Webkit内核）的安全策略决定了file协议访问的应用无法使用XMLHttpRequest对象。
+        如Google Chrome会报错: Failed to load file:///E:/%E5%AD%A6%E4%B9%A0/GitHub/HTML/H5/ajax/start/Bananas%20%20%20%20%20%20%20%20.html: 
+        Cross origin requests are only supported for protocol schemes: http, data, chrome, chrome-extension, https.
+        跨域请求仅支持协议：http, data, chrome, chrome-extension, https, chrome-extension-resource
     </div>
     <div id="target">
         Press a button
@@ -34,6 +34,7 @@
             // readystatechange 事件处理器: handleReponse函数
             // 处理器 在请求 过程 会 多次 触发
             httpRequest.onreadystatechange = handleResponse
+            console.log(event.target.innerHTML)            
             // 使用 open() 通知 XMLHttpRequest 对象，  指定HTTP方法 和  请求的URL
             httpRequest.open("GET", event.target.innerHTML + ".html")
             httpRequest.send()
@@ -42,7 +43,7 @@
         function handleResponse (event) {
             // console.log(event.target.readyState)  输出 1 和 4            
             // XMLHttpRequest.readyState 属性的 值表示 请求状态
-            // DONE 表示完成  status属性 值 200 表示 成功            
+            // DONE 表示完成  status属性 值 200 表示 成功   
             if (event.target.readyState === XMLHttpRequest.DONE && event.target.status === 200) {
                 document.getElementById("target").innerHTML = event.target.responseText
             }
