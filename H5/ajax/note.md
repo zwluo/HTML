@@ -19,3 +19,7 @@
 > 这些事件大多数在某个时间点触发, readystatechange 和 progress 例外 ， 他们多次 触发以 提供进度更新
 
 2. readystatechange 使用常规Event对象，其他的使用ProgressEvent对象
+
+## 处理错误(2类)
+1. 从XMLHttpResquest对象的角度看: 某些因素阻止了请求发送到服务器; 例如DNS无法解析主机名，连接请求被拒绝，获取URl无效
+2. 从应用程序的角度看: 请求成功发送至服务器，服务器接收请求、进行处理并生成响应，但是该响应并不指向期望的内容; 例如请求的URL不存在

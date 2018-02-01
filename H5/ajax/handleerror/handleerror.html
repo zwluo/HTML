@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Ajax Events</title>
+    <style>
+        table {
+            margin: 1rem;
+            border-collapse: collapse;
+            float: left;
+        }
+
+        div {
+            margin: 1rem;
+        }
+
+        td,
+        th {
+            padding: .5rem;
+        }
+    </style>
+</head>
+<body>
+        <div>
+            <button>Apples</button>
+            <button>Cherries</button>
+            <button>Bananas</button>
+            <button>Cucumber</button>
+            <button id="badhost">Bad Host</button>
+            <button id="badurl">Bad Url</button>
+        </div>
+
+        <div id="target">
+            Press a button
+        </div>
+
+        <div id="errormessage">
+            ErrorMessage
+        </div>
+
+        <div id="statusmessage">
+            StatusMessage
+        </div>
+
+        <script>
+            let buttons = document.getElementsByTagName("button")
+            for (let i = 0; i < buttons.length; i++) {
+                buttons[i].onclick = handleButtonClick
+            }
+            let httpRequest
+
+            function handleButtonClick (event) {
+                clearMessages()
+                httpRequest = new XMLHttpRequest()
+                httpRequest.onreadystatechange = handleResponse
+                httpRequest.onerror = handleError
+                try {
+                    switch (event.target.id) {
+                        case "badhost":
+                            httpRequest.open("GET", "http://a.nodomain/doc.html")
+                            break;
+                        case "badurl": 
+                            httpRequest.open("GET", "http://")
+                            break;
+                        default: 
+                            httpRequest.open("GET", event.target.innerHTML + '.html')    
+                            break;                        
+                    }
+                    httpRequest.send()
+                } catch (error) {
+                    displayErrorMessage("try/catch", error.message)
+                }
+            }
+
+            function handleError (event) {
+                displayErrorMessage("Error Event", httpRequest.status + httpRequest.statusText)
+            }
+
+            function handleResponse (event) {
+                if (httpRequest.readyState === 4) {
+                    let target = document.getElementById("target")
+                    if (httpRequest.status === 200) {
+                        target.innerHTML = httpRequest.responseText
+                    } else {
+                        document.getElementById("statusmessage").innerHTML = "Status: " + httpRequest.status + " " + httpRequest.statusText
+                    }
+                } 
+            }
+
+            function displayErrorMessage (src, msg) {
+                document.getElementById("errormessage").innerHTML = src + ": " + msg
+            }
+
+            function clearMessages () {
+                document.getElementById("errormessage").innerHTML = ""
+                document.getElementById("statusmessage").innerHTML = ""
+            }
+
+        </script> 
+</body>
+</html>

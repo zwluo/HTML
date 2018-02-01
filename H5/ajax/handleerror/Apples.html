@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Cherries</title>
+    <style>
+        img {
+            float: left;
+            padding: 2px;
+            margin: 5px;
+            border: medium double black;
+            background-color: lightgrey;
+        }
+    </style>
+</head>
+
+<body>
+    <p>
+        <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1517330161758&di=943e58ed2c0beb319af09391cdca71ae&imgtype=0&src=http%3A%2F%2Fi.ebayimg.com%2F00%2Fs%2FMTIwMFgxNjAw%2Fz%2FWWQAAOSwARZXmaYG%2F%2524_1.JPG%3Fset_id%3D880000500F" alt=""> 
+        如果您使用XMLHttpRequest获取远程HTML网页的内容，则该responseText属性是包含所有HTML标记的“汤”的字符串。这可能难以操纵和分析。
+        有三种主要的方法来分析这个HTML汤字符串： 使用该XMLHttpRequest.responseXML属性。
+        注入的内容成的主体文档片段通过fragment.body.innerHTML并遍历片段的DOM。 RegExp可以使用，如果你总是responseText事先知道HTML的内容。
+        如果您使用RegExp扫描换行符，则可能需要删除换行符。然而，这种方法是“最后的手段”，因为如果HTML代码稍微改变，该方法可能会失败。
+    </p>
+</body>
+
+</html>

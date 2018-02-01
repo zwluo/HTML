@@ -5,7 +5,13 @@
 - Bananas.html
 
 ## Ajax 事件
-- start.html
+- events.html
+- Apples.html
+- Cherries.html
+- Bananas.html
+
+## 处理错误
+- handleerror.html
 - Apples.html
 - Cherries.html
 - Bananas.html
